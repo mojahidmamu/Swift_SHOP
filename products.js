@@ -77,7 +77,7 @@ document.querySelectorAll(".catBtn").forEach(btn => {
 });
 
 
-// open modal + load product
+// open modal  
 function goDetails(id) {
   fetch(`https://fakestoreapi.com/products/${id}`)
     .then(res => res.json())
