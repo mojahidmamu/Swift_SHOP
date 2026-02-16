@@ -60,15 +60,11 @@ function renderProducts(products) {
 
 
 document.querySelectorAll(".catBtn").forEach(btn => {
-
   btn.addEventListener("click", () => {
-
     const cat = btn.dataset.cat;
-
-    // active button style
+    // active button
     document.querySelectorAll(".catBtn")
       .forEach(b => b.classList.remove("bg-indigo-600","text-white"));
-
     btn.classList.add("bg-indigo-600","text-white");
 
     if (cat === "all") {
@@ -77,42 +73,37 @@ document.querySelectorAll(".catBtn").forEach(btn => {
       const filtered = allProducts.filter(p => p.category === cat);
       renderProducts(filtered);
     }
-
   });
-
 });
 
 
 // open modal + load product
 function goDetails(id) {
-
   fetch(`https://fakestoreapi.com/products/${id}`)
     .then(res => res.json())
     .then(p => {
+        selectedProduct = p;
+        document.getElementById("mImage").src = p.image;
+        document.getElementById("mTitle").innerText = p.title;
+        document.getElementById("mDesc").innerText = p.description;
+        document.getElementById("mPrice").innerText = "$" + p.price;
+        document.getElementById("mRating").innerText =
+            `⭐ ${p.rating.rate} (${p.rating.count} reviews)`;
 
-      selectedProduct = p;
-
-      document.getElementById("mImage").src = p.image;
-      document.getElementById("mTitle").innerText = p.title;
-      document.getElementById("mDesc").innerText = p.description;
-      document.getElementById("mPrice").innerText = "$" + p.price;
-      document.getElementById("mRating").innerText =
-        `⭐ ${p.rating.rate} (${p.rating.count} reviews)`;
-
-      const modal = document.getElementById("productModal");
-      modal.classList.remove("hidden");
-      modal.classList.add("flex");
+        const modal = document.getElementById("productModal");
+        modal.classList.remove("hidden");
+        modal.classList.add("flex");
     });
 }
 
 function closeModal() {
-  const modal = document.getElementById("productModal");
-  modal.classList.add("hidden");
-  modal.classList.remove("flex");
+    const modal = document.getElementById("productModal");
+    modal.classList.add("hidden");
+    modal.classList.remove("flex");
 }
 
 function addToCartFromModal() {
-  cart++;
-  cartCount.innerText = cart;
-  closeModal();
+    cart++;
+    cartCount.innerText = cart;
+    closeModal();
 }
