@@ -1,4 +1,4 @@
-1) What is the difference between null and undefined? 
+<!-- 1) What is the difference between null and undefined? 
 => i. undefined মানে হলো — কোনো ভ্যারিয়েবল declare করা হয়েছে কিন্তু তার কোনো value assign করা হয়নি। 
    ii. null মানে হলো — ইচ্ছা করে value খালি সেট করা হয়েছে।
 সংক্ষেপে:
@@ -18,4 +18,4 @@
 => Scope মানে — কোন ভ্যারিয়েবল কোথা থেকে access করা যাবে।
     i. Global Scope:    যে variable সব জায়গা থেকে ব্যবহার করা যায়।
     ii. Function Scope: function এর ভিতরে declare করলে শুধু function এর ভিতরে কাজ করে।
-    iii. Block Scope:   {} block এর ভিতরে declare করলে শুধু ওই block এর ভিতরে কাজ করে (let, const)।
+    iii. Block Scope:   {} block এর ভিতরে declare করলে শুধু ওই block এর ভিতরে কাজ করে (let, const)। -->

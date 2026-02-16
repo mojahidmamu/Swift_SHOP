@@ -33,7 +33,7 @@ fetch("https://fakestoreapi.com/products")
         </p>
 
       <div class="flex gap-2">
-        <button class="text-black border rounded-lg px-4 py-2 ">
+        <button onclick="goDetails(${p.id})" class="text-black border rounded-lg px-4 py-2 ">
           View Details
         </button>
         <button class="addBtn mt-auto bg-indigo-600 text-white px-4 py-2 rounded-lg hover:bg-indigo-700">
@@ -58,3 +58,40 @@ fetch("https://fakestoreapi.com/products")
       "<p class='text-red-500'>Failed to load products</p>";
     console.error(err);
   });
+
+
+  let selectedProduct = null;
+
+// open modal + load product
+function goDetails(id) {
+
+  fetch(`https://fakestoreapi.com/products/${id}`)
+    .then(res => res.json())
+    .then(p => {
+
+      selectedProduct = p;
+
+      document.getElementById("mImage").src = p.image;
+      document.getElementById("mTitle").innerText = p.title;
+      document.getElementById("mDesc").innerText = p.description;
+      document.getElementById("mPrice").innerText = "$" + p.price;
+      document.getElementById("mRating").innerText =
+        `⭐ ${p.rating.rate} (${p.rating.count} reviews)`;
+
+      const modal = document.getElementById("productModal");
+      modal.classList.remove("hidden");
+      modal.classList.add("flex");
+    });
+}
+
+function closeModal() {
+  const modal = document.getElementById("productModal");
+  modal.classList.add("hidden");
+  modal.classList.remove("flex");
+}
+
+function addToCartFromModal() {
+  cart++;
+  cartCount.innerText = cart;
+  closeModal();
+}

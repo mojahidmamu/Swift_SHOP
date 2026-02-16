@@ -14,10 +14,10 @@
         <div class="max-w-7xl mx-auto px-10 py-4 flex justify-between items-center">
             <h1 class="text-2xl font-bold text-indigo-600">SwiftCart</h1>
             <ul class="hidden md:flex gap-8 font-medium">
-                <li><a href="#" class="text-indigo-600">Home</a></li>
-                <li><a href="#">Products</a></li>
-                <li><a href="#">About</a></li>
-                <li><a href="#">Contact</a></li>
+                <li><a href="index.html" class="hover:text-indigo-700">Home</a></li>
+                <li><a href="products.html">Products</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="contact.html">Contact</a></li>
             </ul>
             <button class="relative">
                 🛒
@@ -176,8 +176,32 @@
 
     </footer>
 
-    
     <script src="logic.js"></script>
+
+    
+    <!-- Product Modal -->
+    <div id="productModal"
+        class="fixed inset-0 bg-black/50 hidden items-center justify-center z-50">
+    <div class="bg-white max-w-2xl w-full rounded-lg p-6 relative">
+        <!-- close button -->
+        <button onclick="closeModal()"
+        class="absolute top-3 right-3 text-xl">✖</button>
+        <div class="grid md:grid-cols-2 gap-6">
+        <img id="mImage" class="h-64 object-contain mx-auto">
+
+        <div>
+            <h2 id="mTitle" class="text-xl font-bold mb-2"></h2>
+            <p id="mDesc" class="text-gray-600 mb-3 text-sm"></p>
+            <p id="mPrice" class="text-indigo-600 font-bold text-lg mb-1"></p>
+            <p id="mRating" class="text-sm text-gray-500 mb-4"></p> 
+            <button onclick="addToCartFromModal()"
+            class="bg-indigo-600 text-white px-5 py-2 rounded w-full hover:bg-indigo-700">
+            Add To Cart
+            </button>
+        </div>
+        </div>
+    </div>
+    </div>
 
 </body>
 </html>
