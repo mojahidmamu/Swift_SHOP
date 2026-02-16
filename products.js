@@ -24,9 +24,14 @@ function renderProducts(products) {
      card.innerHTML = `
         <img src="${p.image}" class="h-48 mx-auto object-contain mb-4">
 
-        <p class="text-sm text-gray-500 mb-4">
-          ⭐ ${p.rating.rate} (${p.rating.count})
-        </p>
+        <div class="flex justify-between">
+          <button class="text-sm border border-gray-300 bg-green-100 rounded-lg px-3 py-1 mb-4">
+            ${p.category}
+          </button>
+          <p class="text-sm text-gray-500 mb-4">
+            ⭐ ${p.rating.rate} (${p.rating.count})
+          </p>
+        </div>
 
         <h3 class="font-semibold mb-2">
           ${p.title}
