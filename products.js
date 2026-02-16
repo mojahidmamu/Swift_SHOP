@@ -17,39 +17,34 @@ function renderProducts(products) {
   productGrid.innerHTML = "";
 
   products.forEach(p => {
-
     const card = document.createElement("div");
     card.className =
       "bg-white p-5 rounded-xl shadow hover:shadow-lg transition flex flex-col";
 
-    card.innerHTML = `
-      <img src="${p.image}"
-           class="h-48 object-contain mb-4">
+     card.innerHTML = `
+        <img src="${p.image}" class="h-48 mx-auto object-contain mb-4">
 
-      <span class="text-xs bg-indigo-100 text-indigo-600 px-2 py-1 rounded w-max mb-2">
-        ${p.category}
-      </span>
+        <p class="text-sm text-gray-500 mb-4">
+          ⭐ ${p.rating.rate} (${p.rating.count})
+        </p>
 
-      <h3 class="font-semibold mb-2 line-clamp-2">
-        ${p.title}
-      </h3>
+        <h3 class="font-semibold mb-2">
+          ${p.title}
+        </h3>
 
-      <div class="flex justify-between text-sm mb-2">
-        <span class="font-bold">$${p.price}</span>
-        <span class="text-yellow-500">⭐ ${p.rating.rate}</span>
-      </div>
+        <p class="text-indigo-600 font-bold mb-1">
+          $${p.price}
+        </p>
 
-      <div class="flex gap-2 mt-auto">
-        <button onclick="goDetails(${p.id})"
-          class="border px-3 py-2 rounded w-full">
-          Details
+      <div class="flex gap-2">
+        <button onclick="goDetails(${p.id})" class="text-black border rounded-lg px-4 py-2 ">
+          View Details
         </button>
-
-        <button class="addBtn bg-indigo-600 text-white px-3 py-2 rounded w-full">
-          Add
+        <button class="addBtn mt-auto bg-indigo-600 text-white px-4 py-2 rounded-lg hover:bg-indigo-700">
+          Add To Cart
         </button>
       </div>
-    `;
+      `;
 
     productGrid.appendChild(card);
   });

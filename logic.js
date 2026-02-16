@@ -64,7 +64,6 @@ fetch("https://fakestoreapi.com/products")
 
 // open modal + load product
 function goDetails(id) {
-
   fetch(`https://fakestoreapi.com/products/${id}`)
     .then(res => res.json())
     .then(p => {
